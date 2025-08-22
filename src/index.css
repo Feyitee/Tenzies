@@ -48,3 +48,13 @@ main {
   cursor: pointer;
   font-family: Inter, sans-serif;
 }
+
+.roll-dice {
+  margin-top: 20px;
+  background-color: #5035ff;
+  height: 50px;
+  width: 100px;
+  border-radius: 6px;
+  border: none;
+  color: white;
+}
