@@ -17,6 +17,10 @@ const App = () => {
 
   const [dice, setDice] = React.useState(generateAllNewDice());
 
+  const gameWon =
+    dice.every((die) => die.isHeld) &&
+    dice.every((die) => die.value === dice[0].value);
+
   function generateAllNewDice() {
     return new Array(10).fill(0).map(() => ({
       value: Math.ceil(Math.random() * 6),
@@ -61,7 +65,7 @@ const App = () => {
       </p>
       <div className="dice-container">{diceElements}</div>
       <button className="roll-dice" onClick={rollDice}>
-        Roll
+        {gameWon ? "New game" : "Roll"}
       </button>
     </main>
   );
