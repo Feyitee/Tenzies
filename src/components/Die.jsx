@@ -6,7 +6,12 @@ const Die = (props) => {
   };
 
   return (
-    <button style={styles} onClick={props.hold}>
+    <button
+      style={styles}
+      onClick={props.hold}
+      aria-pressed={props.isHeld}
+      aria-label={`Die with value ${props.isHeld ? "Held" : "Not Held"}`}
+    >
       {props.value}
     </button>
   );
