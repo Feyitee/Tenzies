@@ -15,7 +15,10 @@ const App = () => {
   // }
 
   function generateAllNewDice() {
-    return new Array(10).fill(0).map(() => Math.ceil(Math.random() * 6));
+    return new Array(10).fill(0).map(() => ({
+      value: Math.ceil(Math.random() * 6),
+      isHeld: false,
+    }));
   }
 
   const [dice, setDice] = React.useState(generateAllNewDice());
@@ -26,8 +29,8 @@ const App = () => {
     setDice(generateAllNewDice);
   };
 
-  const diceElements = dice.map((num) => {
-    return <Die value={num} />;
+  const diceElements = dice.map((dieObj) => {
+    return <Die value={dieObj.value} />;
   });
 
   return (
